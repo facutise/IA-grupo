@@ -13,7 +13,7 @@ public class MyHunterFiniteStateMachine//=FiniteStateMachine
     public void Update()
     {
         //if(_currentState != null) _currentState.OnUpdate(); //Evita llamados nulos
-
+       
         //Versiones mas recientes
         _currentState?.ThisStateUpdate(); //Evita llamados nulos
     }

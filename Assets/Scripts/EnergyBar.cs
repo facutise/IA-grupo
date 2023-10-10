@@ -8,6 +8,7 @@ public class EnergyBar : MonoBehaviour
     public float MaxEnergy = 1;
     public float MinEnergy = 0;
     public float DecreaseSpeedOfEnergy =0.05f;
+    public float IncreasSpeedOfEnergy = 0.08f;
     public Image EnergyImageBar;
     public float currentEnergyValue;
     //[SerializeField] private ThePlayerView PlayerViewScript; ADAPTARLO A ESTE PROYECTO
@@ -23,11 +24,7 @@ public class EnergyBar : MonoBehaviour
         BatteryUI();
         
     }*/
-    public void Update()
-    {
-        EnergyRecoveryIdleStateFunction();
-        //HuntingModeEnergyConsumption();
-    }
+    
 
     public void HuntingModeEnergyConsumption()
     {
@@ -38,8 +35,8 @@ public class EnergyBar : MonoBehaviour
 
     public void EnergyRecoveryIdleStateFunction()
     {
-        currentEnergyValue = Mathf.Lerp(currentEnergyValue, MaxEnergy, DecreaseSpeedOfEnergy * Time.deltaTime);
-
+        currentEnergyValue = Mathf.Lerp(currentEnergyValue, MaxEnergy, IncreasSpeedOfEnergy * Time.deltaTime);
+        Debug.Log("se esta ejecutando el recovery");
         EnergyImageBar.fillAmount = currentEnergyValue / MaxEnergy;
     }
 }

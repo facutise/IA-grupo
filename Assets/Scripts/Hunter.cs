@@ -52,10 +52,11 @@ public class Hunter : StateFather//=moveState
         HunterTransform = p.transform;
     }
 
-    private void Update()
+   /* private void Update()
     {
         ThisStateUpdate();
-    }
+        Debug.Log("El Update cazador funciona");
+    }*/
     /*para el Pursuit en vez de usar un transform usamos como variable el script de la presa para acceder a su vector velocity, entonces,
       el vector3 desired pasaría a ser el siguiente: (target.transform.position + target.velocity) - transform.position; */
     //para que no rote de una clampeamos el steering
@@ -167,12 +168,13 @@ public class Hunter : StateFather//=moveState
     public override void OnEnter()
     {
         Debug.Log("Cazador entro a estado Move");
-        _rend.material.color = Color.red;
+        _rend.material.color = Color.green;
     }
 
     
     public override void ThisStateUpdate()
     {
+        
         ObstacleAvoidance();
         seek();
 
@@ -185,7 +187,7 @@ public class Hunter : StateFather//=moveState
 
         EnergyBarScript.HuntingModeEnergyConsumption();//Función que consume la energía
 
-        if (EnergyBarScript.currentEnergyValue <= EnergyBarScript.MinEnergy)
+        if (EnergyBarScript.currentEnergyValue <= 0.017f)
         {
             
 

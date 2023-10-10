@@ -32,18 +32,19 @@ public class HunterPatrolState : StateFather//=IdleState
 
 
    
-    private void Update()
+   /* private void Update()
     {
         
         ThisStateUpdate();
     }
-   
+   */
     
     public override void ThisStateUpdate()
     {
         EnergyBarScript.EnergyRecoveryIdleStateFunction();//Función que recarga la energía 
+
         
-        if (EnergyBarScript.currentEnergyValue >= EnergyBarScript.MinEnergy)
+        if (EnergyBarScript.currentEnergyValue >= 0.9f)
         {
 
 
