@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Facundo Sebastian Tisera
 public class HunterNPC : MonoBehaviour//Player
 {
     MyHunterFiniteStateMachine _fsm; //Con esto lo estamos guardando en nuestra variable

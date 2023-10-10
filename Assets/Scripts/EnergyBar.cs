@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Facundo Sebastian Tisera
 public class EnergyBar : MonoBehaviour//Script donde se carga y se descarga la barra de energía del Hunter
 {
     public float MaxEnergy = 1;

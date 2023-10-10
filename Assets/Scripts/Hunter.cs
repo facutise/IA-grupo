@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//Facundo Sebastian Tisera
 public class Hunter : StateFather//=moveState
 {
     [SerializeField] Transform _target;
