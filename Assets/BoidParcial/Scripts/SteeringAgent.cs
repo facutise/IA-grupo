@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class SteeringAgent : MonoBehaviour
 {
-    [SerializeField] public float _maxSpeed, _maxForce;
-    [SerializeField] public float _viewRadius;
+    [SerializeField] public float _maxSpeed, _maxForce; //Velocidad máxima a la que va el objeto y la fuerza con la que llega a dicho valor (A mayor Force, más rápido llega a la maxSpeed).
+    [SerializeField] public float _viewRadius; //Rango de visión
     [SerializeField] public LayerMask _obstacles;
 
-    protected Vector3 _velocity;
+    protected Vector3 _velocity; //Velocity /= Speed. Velocity mide a la velocidad que se mueve el objeto.
 
     public void Move()
     {
@@ -27,7 +27,7 @@ public class SteeringAgent : MonoBehaviour
         return Seek(targetPos, _maxSpeed);
     }
 
-    public Vector3 Seek(Vector3 targetPos, float speed)
+    public Vector3 Seek(Vector3 targetPos, float speed) //Busca al objetivo
     {
         Vector3 desired = (targetPos - transform.position).normalized * speed;
         Vector3 steering = desired - _velocity;
@@ -56,7 +56,7 @@ public class SteeringAgent : MonoBehaviour
         return Vector3.zero;
     }
 
-    public Vector3 Pursuit(SteeringAgent targetAgent)
+    public Vector3 Pursuit(SteeringAgent targetAgent) //Pursuit /= Seek. Seek busca dentro de un rango, Pursuit persigue un objetivo
     {
         Vector3 futurePos = targetAgent.transform.position + targetAgent._velocity;
         Debug.DrawLine(transform.position, futurePos, Color.cyan);
@@ -64,7 +64,7 @@ public class SteeringAgent : MonoBehaviour
         return Seek(futurePos);
     }
 
-    public Vector3 Evade(SteeringAgent targetAgent)
+    public Vector3 Evade(SteeringAgent targetAgent) //Esquiva al Hunter
     {
         return -Pursuit(targetAgent);
     }
@@ -74,7 +74,7 @@ public class SteeringAgent : MonoBehaviour
         transform.position = Vector3.zero;
     }
 
-    public Vector3 Alignment(List<SteeringAgent> agents)
+    public Vector3 Alignment(List<SteeringAgent> agents) //Alineación de un conjunto de objetos o Flock
     {
         Vector3 desired = Vector3.zero;
         int boidsCount = 0;
@@ -92,7 +92,7 @@ public class SteeringAgent : MonoBehaviour
         return CalculateSteering(desired.normalized * _maxSpeed);
     }
 
-    public Vector3 Separation(List<SteeringAgent> agents)
+    public Vector3 Separation(List<SteeringAgent> agents) //Separación entre los objetos dentro de ese grupo o Flock
     {
         Vector3 desired = Vector3.zero;
 
@@ -110,7 +110,7 @@ public class SteeringAgent : MonoBehaviour
         return CalculateSteering(desired.normalized * _maxSpeed);
     }
 
-    public Vector3 Cohesion(List<SteeringAgent> agents)
+    public Vector3 Cohesion(List<SteeringAgent> agents) //Establece un promedio entre las distancias de los objetos 
     {
         Vector3 desired = Vector3.zero;
         int boidsCount = 0;

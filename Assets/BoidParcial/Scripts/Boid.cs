@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Boid : SteeringAgent
 {
-    [SerializeField] Transform _seekTarget, _fleeTarget;
+    [SerializeField] Transform _seekTarget /*Objetivo*/, _fleeTarget /*Esquiva al Hunter*/;
     [SerializeField, Range(0f, 2.5f)] float _alignmentWeight = 1;
     [SerializeField, Range(0f, 2.5f)] float _separationWeight = 1;
     [SerializeField, Range(0f, 2.5f)] float _cohesionWeight = 1;
@@ -20,7 +20,7 @@ public class Boid : SteeringAgent
 
         _velocity = dir.normalized * _maxSpeed;
 
-        GameManager.instance.allAgents.Add(this);
+        GameManager.instance.allAgents.Add(this); //Agrega la lista del Game Manager
     }
 
     void Update()
@@ -48,13 +48,13 @@ public class Boid : SteeringAgent
     {
         var boids = GameManager.instance.allAgents;
         AddForce(Alignment(boids) * _alignmentWeight);
-        AddForce(Separation(boids) * _separationWeight); //Se aplique un radio mas chico al actual
+        AddForce(Separation(boids) * _separationWeight); //Se aplica un radio mas chico al actual
         AddForce(Cohesion(boids) * _cohesionWeight);
     }
 
     private void UpdateBoundPosition()
     {
-        transform.position = GameManager.instance.AdjustPostionToBounds(transform.position);
+        transform.position = GameManager.instance.AdjustPostionToBounds(transform.position); //Ajusta los límites del Game Manager para que no se salgan de adentro.
     }
 
     public override void OnDrawGizmos()
