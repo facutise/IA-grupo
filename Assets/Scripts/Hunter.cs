@@ -116,7 +116,7 @@ public class Hunter : StateFather//=moveState
         Debug.Log("Cazador entro a estado Move");
         _rend.material.color = Color.red;
     }
-
+    
     
     public override void ThisStateUpdate()
     {

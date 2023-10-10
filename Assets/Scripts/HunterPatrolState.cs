@@ -14,6 +14,15 @@ public class HunterPatrolState : StateFather//=IdleState
     public EnergyBar EnergyBarScript;
 
     public Transform HunterTransform;
+
+    [SerializeField] LayerMask _obstacles;
+    Vector3 _desired;
+
+    public float MaxEnergy = 1;
+    public float MinEnergy = 0;
+    public float DecreaseSpeedOfEnergy = 0.05f;
+
+    public float TimeTakenForRecoveryEnergyValue;
     public HunterPatrolState(HunterNPC p)//constructor
     {
         _maxSpeed = 5;
@@ -26,19 +35,46 @@ public class HunterPatrolState : StateFather//=IdleState
         EnergyBarScript = p.EnergyBarScript;
 
         HunterTransform = p.transform;
+        _obstacles = p._obstacles;
 
+        MaxEnergy = 1;
+        MinEnergy = 0;
+        DecreaseSpeedOfEnergy = 0.05f;
+    }
 
+    public void ObstacleAvoidance()
+    {
+        if (Physics.Raycast(HunterTransform.position + HunterTransform.up * 0.5f, HunterTransform.right, _radius, _obstacles))
+        {
+            _desired = HunterTransform.position - HunterTransform.up;
+
+        }
+        else if (Physics.Raycast(HunterTransform.position - HunterTransform.up * 0.5f, HunterTransform.right, _radius, _obstacles))
+        {
+            _desired = HunterTransform.position + HunterTransform.up;
+        }
+        else
+        {
+            _desired = _wayPointsArray[_myWayPointInt].transform.position - HunterTransform.position;
+        }
+    }
+    public float TimeTakenToStartRecoveringEnergy()
+    {
+        TimeTakenForRecoveryEnergyValue -= DecreaseSpeedOfEnergy * Time.deltaTime;
+
+        return TimeTakenForRecoveryEnergyValue;
     }
 
 
-   
-   
-    
     public override void ThisStateUpdate()//"Update" de este script
     {
-        EnergyBarScript.EnergyRecoveryIdleStateFunction();//Función que recarga la energía 
+        if (TimeTakenToStartRecoveringEnergy() <= 0.1)
+        {
+            EnergyBarScript.EnergyRecoveryIdleStateFunction();//Función que recarga la energía 
 
-        
+        }
+
+
         if (EnergyBarScript.currentEnergyValue >= 0.9f)
         {
 
@@ -49,7 +85,7 @@ public class HunterPatrolState : StateFather//=IdleState
         }
 
 
-
+        
         Vector3 ActualDir = _wayPointsArray[_myWayPointInt].position - HunterTransform.position;
         if (ActualDir.magnitude < _radius)//IF para pasar de un waypoint a otro
         {
@@ -62,7 +98,7 @@ public class HunterPatrolState : StateFather//=IdleState
                 _myWayPointInt += 1;
             }
         }
-
+        
         WayPointsSystem(_myWayPointInt);
         /*if(transform.position== _wayPointsArray[_myWayPointInt].transform.position)
         {
@@ -83,15 +119,28 @@ public class HunterPatrolState : StateFather//=IdleState
 
     private void WayPointsSystem(int ActualWaypoint)
     {
-        Vector3 desired = _wayPointsArray[ActualWaypoint].transform.position - HunterTransform.position;
-        desired.Normalize();
-        desired *= _maxSpeed;
+        _desired = _wayPointsArray[ActualWaypoint].transform.position - HunterTransform.position;
+        _desired.Normalize();
+        _desired *= _maxSpeed;
 
-        Vector3 steering = desired - _velocity;
+        Vector3 steering = _desired - _velocity;
 
         steering = Vector3.ClampMagnitude(steering, _maxForce * Time.deltaTime);
 
         AddForce(steering);
+
+
+        if (_desired.magnitude < _radius)//IF para pasar de un waypoint a otro
+        {
+            if (_myWayPointInt >= _wayPointsArray.Length - 1)
+            {
+                _myWayPointInt = 0;
+            }
+            else
+            {
+                _myWayPointInt += 1;
+            }
+        }
 
 
     }
@@ -114,9 +163,10 @@ public class HunterPatrolState : StateFather//=IdleState
     public override void OnEnter()
     {
         Debug.Log("entre a idle");
+        TimeTakenForRecoveryEnergyValue = MaxEnergy;
     }
 
-   
+
     public override void OnExit()
     {
         Debug.Log("sali de idle");
