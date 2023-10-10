@@ -57,6 +57,31 @@ public class Boid : SteeringAgent
         transform.position = GameManager.instance.AdjustPostionToBounds(transform.position); //Ajusta los límites del Game Manager para que no se salgan de adentro.
     }
 
+    protected bool HastToUseObstacleAvoidance()
+    {
+        Vector3 avoidanceObs = ObstacleAvoidance();
+        AddForce(avoidanceObs);
+        return avoidanceObs != Vector3.zero;
+    }
+
+    protected Vector3 ObstacleAvoidance()
+    {
+        if (Physics.Raycast(transform.position + transform.up * 0.5f, transform.right, _viewRadius, _obstacles))
+        {
+            _velocity = transform.position - transform.up;
+
+        }
+        else if (Physics.Raycast(transform.position - transform.up * 0.5f, transform.right, -_viewRadius, _obstacles))
+        {
+            _velocity = transform.position + transform.up;
+        }
+        else
+        {
+            _velocity = _seekTarget.transform.position - transform.position;
+        }
+        return Vector3.zero;
+    }
+
     protected override void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

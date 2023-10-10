@@ -15,12 +15,7 @@ public class SteeringAgent : MonoBehaviour
         if (_velocity != Vector3.zero) transform.right = _velocity;
     }
 
-    protected bool HastToUseObstacleAvoidance()
-    {
-        Vector3 avoidanceObs = ObstacleAvoidance();
-        AddForce(avoidanceObs);
-        return avoidanceObs != Vector3.zero;
-    }
+
 
     protected Vector3 Seek(Vector3 targetPos)
     {
@@ -43,19 +38,6 @@ public class SteeringAgent : MonoBehaviour
         if (dist > _viewRadius) return Seek(targetPos);
 
         return Seek(targetPos, _maxSpeed * (dist / _viewRadius));
-    }
-
-    protected Vector3 ObstacleAvoidance()
-    {
-        if (Physics.Raycast(transform.position + transform.up * 0.5f, transform.right, _viewRadius, _obstacles))
-
-            return Seek(transform.position - transform.up);
-
-        else if (Physics.Raycast(transform.position - transform.up * 0.5f, transform.right, _viewRadius, _obstacles))
-
-            return Seek(transform.position + transform.up);
-
-        return Vector3.zero;
     }
 
     protected Vector3 Pursuit(SteeringAgent targetAgent) //Pursuit /= Seek. Seek busca dentro de un rango, Pursuit persigue un objetivo

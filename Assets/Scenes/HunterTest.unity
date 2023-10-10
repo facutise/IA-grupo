@@ -291,11 +291,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _cohesionWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _alignmentWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _obstacles.m_Bits
@@ -303,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _separationWeight
-      value: 0.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _arrayOfObjectives.Array.size
@@ -959,11 +959,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _cohesionWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _alignmentWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _obstacles.m_Bits
@@ -971,7 +971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _separationWeight
-      value: 0.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _arrayOfObjectives.Array.size
@@ -1338,11 +1338,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _cohesionWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _alignmentWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _obstacles.m_Bits
@@ -1350,7 +1350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _separationWeight
-      value: 0.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _arrayOfObjectives.Array.size
@@ -2004,11 +2004,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _cohesionWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _alignmentWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _obstacles.m_Bits
@@ -2016,7 +2016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _separationWeight
-      value: 0.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _arrayOfObjectives.Array.size
@@ -2202,11 +2202,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _cohesionWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _alignmentWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _obstacles.m_Bits
@@ -2214,7 +2214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _separationWeight
-      value: 0.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _arrayOfObjectives.Array.size
@@ -2313,11 +2313,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _cohesionWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _alignmentWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _obstacles.m_Bits
@@ -2325,7 +2325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _separationWeight
-      value: 0.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _arrayOfObjectives.Array.size
@@ -2615,11 +2615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _cohesionWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _alignmentWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _obstacles.m_Bits
@@ -2627,7 +2627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _separationWeight
-      value: 0.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _arrayOfObjectives.Array.size
@@ -3184,11 +3184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _cohesionWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _alignmentWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _obstacles.m_Bits
@@ -3196,7 +3196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _separationWeight
-      value: 0.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _arrayOfObjectives.Array.size
@@ -3379,11 +3379,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _cohesionWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _alignmentWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _obstacles.m_Bits
@@ -3391,7 +3391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _separationWeight
-      value: 0.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _arrayOfObjectives.Array.size
@@ -3516,11 +3516,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _cohesionWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _alignmentWeight
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _obstacles.m_Bits
@@ -3528,7 +3528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _separationWeight
-      value: 0.6
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5996348942955352532, guid: 8876604c922223e4a9f1baecb35d89ad, type: 3}
       propertyPath: _arrayOfObjectives.Array.size
