@@ -35,10 +35,10 @@ public class Hunter : StateFather//=moveState
     public Transform HunterTransform;
     public Hunter(HunterNPC p)
     {
-        _maxSpeed = 3;
+        _maxSpeed = 7;
         _rangeToKill = 1;
-        _radius = 2;
-        _maxForce = 2;
+        _radius = 3;
+        _maxForce = 3;
         _obstacles = p._obstacles;
         _enemies = p._enemies;
         _arrayOfEnemies = p._arrayOfEnemies;
