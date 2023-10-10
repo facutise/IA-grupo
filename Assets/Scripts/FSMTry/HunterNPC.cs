@@ -30,7 +30,5 @@ public class HunterNPC : MonoBehaviour//Player
     {
         Idle,
         Move,
-        Jump,
-        Attack,
-        Dying
+        
     }

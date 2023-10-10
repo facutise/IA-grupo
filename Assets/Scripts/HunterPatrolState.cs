@@ -14,11 +14,11 @@ public class HunterPatrolState : StateFather//=IdleState
     public EnergyBar EnergyBarScript;
 
     public Transform HunterTransform;
-    public HunterPatrolState(HunterNPC p)
+    public HunterPatrolState(HunterNPC p)//constructor
     {
-        _maxSpeed = 3;
+        _maxSpeed = 5;
         _radius = 2;
-        _maxForce = 2;
+        _maxForce = 3;
         _wayPointsArray = p._wayPointsArray;
         _myWayPointInt = 0;
         _rend = p.GetComponent<Renderer>();
@@ -32,14 +32,9 @@ public class HunterPatrolState : StateFather//=IdleState
 
 
    
-   /* private void Update()
-    {
-        
-        ThisStateUpdate();
-    }
-   */
+   
     
-    public override void ThisStateUpdate()
+    public override void ThisStateUpdate()//"Update" de este script
     {
         EnergyBarScript.EnergyRecoveryIdleStateFunction();//Función que recarga la energía 
 
@@ -56,7 +51,7 @@ public class HunterPatrolState : StateFather//=IdleState
 
 
         Vector3 ActualDir = _wayPointsArray[_myWayPointInt].position - HunterTransform.position;
-        if (ActualDir.magnitude < _radius)
+        if (ActualDir.magnitude < _radius)//IF para pasar de un waypoint a otro
         {
             if (_myWayPointInt >= _wayPointsArray.Length - 1)
             {
@@ -124,6 +119,6 @@ public class HunterPatrolState : StateFather//=IdleState
    
     public override void OnExit()
     {
-        Debug.Log("sali a idle");
+        Debug.Log("sali de idle");
     }
 }

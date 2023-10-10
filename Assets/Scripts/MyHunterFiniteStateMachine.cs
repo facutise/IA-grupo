@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class MyHunterFiniteStateMachine//=FiniteStateMachine
 {
-
+    //estado actual
     StateFather _currentState;
     //Diccionario de estados
     Dictionary<PlayerStates, StateFather> _allStates = new Dictionary<PlayerStates, StateFather>();
-    //Si este codigo quiero que sea generico, no deberia estar llamando a un enum en especifico
+    
 
     public void Update()
     {
-        //if(_currentState != null) _currentState.OnUpdate(); //Evita llamados nulos
-       
-        //Versiones mas recientes
+        
         _currentState?.ThisStateUpdate(); //Evita llamados nulos
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnergyBar : MonoBehaviour
+public class EnergyBar : MonoBehaviour//Script donde se carga y se descarga la barra de energía del Hunter
 {
     public float MaxEnergy = 1;
     public float MinEnergy = 0;
@@ -11,19 +11,14 @@ public class EnergyBar : MonoBehaviour
     public float IncreasSpeedOfEnergy = 0.08f;
     public Image EnergyImageBar;
     public float currentEnergyValue;
-    //[SerializeField] private ThePlayerView PlayerViewScript; ADAPTARLO A ESTE PROYECTO
+   
 
     private void Start()
     {
         currentEnergyValue = MaxEnergy;
-        //PlayerViewScript.BatteryBar += BatteryUI; ADAPTARLO A ESTE PROYECTO
-    }
-    //HACER LO QUE ESTÁ AHORA EN ESTE UPDATE en una función de acá y dicha función suscribírla a un action en UVLantern(simular lo de )
-    /*private void Update()
-    {
-        BatteryUI();
         
-    }*/
+    }
+    
     
 
     public void HuntingModeEnergyConsumption()
@@ -36,7 +31,7 @@ public class EnergyBar : MonoBehaviour
     public void EnergyRecoveryIdleStateFunction()
     {
         currentEnergyValue = Mathf.Lerp(currentEnergyValue, MaxEnergy, IncreasSpeedOfEnergy * Time.deltaTime);
-        Debug.Log("se esta ejecutando el recovery");
+        
         EnergyImageBar.fillAmount = currentEnergyValue / MaxEnergy;
     }
 }

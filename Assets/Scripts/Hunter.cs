@@ -3,17 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*Para el sistema de energía hacer algo parecido a la batería en  Aplicación de Motores HECHO*/
 
-/*La vuelta al ser esquivado debe tener un poco de delay para que sea mas realista
- clase 5 tiene el obstacle avoidance, el pursuit y el range to kill (no necesariamente laburar con herencia o scripts como
- parametro, laburar con transforms es más fácil*/
-
-/*El pursuit funciona basicamente al hacer un seek pero el vector director es la suma de la posicion de la presa + el vector velocidad( de dicha presa, creo)*/
-
-/*Re ver y analizar profundamente obstacle Avoidance que entendí pero me re perdí, ver primero el script*/
-
-//FALTA PURSUIT-KILL- OBSTACLE AVOIDANCE- CAMBIO DE ESTADOS.
 public class Hunter : StateFather//=moveState
 {
     [SerializeField] Transform _target;
@@ -21,7 +11,7 @@ public class Hunter : StateFather//=moveState
     [SerializeField] float _rangeToKill;
     [SerializeField] float _radius;
     [SerializeField] float _maxForce;
-    //[SerializeField] Transform[] _wayPoints;
+    
     [SerializeField] LayerMask _obstacles;
     [SerializeField] LayerMask _enemies;
     Vector3 _velocity;
@@ -33,7 +23,7 @@ public class Hunter : StateFather//=moveState
     public EnergyBar EnergyBarScript;
 
     public Transform HunterTransform;
-    public Hunter(HunterNPC p)
+    public Hunter(HunterNPC p)//constructor
     {
         _maxSpeed = 7;
         _rangeToKill = 1;
@@ -52,27 +42,11 @@ public class Hunter : StateFather//=moveState
         HunterTransform = p.transform;
     }
 
-   /* private void Update()
-    {
-        ThisStateUpdate();
-        Debug.Log("El Update cazador funciona");
-    }*/
-    /*para el Pursuit en vez de usar un transform usamos como variable el script de la presa para acceder a su vector velocity, entonces,
-      el vector3 desired pasaría a ser el siguiente: (target.transform.position + target.velocity) - transform.position; */
-    //para que no rote de una clampeamos el steering
+   
 
     private void seek()
     {
-        /*Vector3 desired = _target.position - transform.position;
-        desired.Normalize();
-        desired *= _maxSpeed;
-
-        Vector3 steering = desired - _velocity;
-        steering = Vector3.ClampMagnitude(steering, _maxForce * Time.deltaTime);
-
-        AddForce(steering);*/
-
-        //_desired = _target.position - transform.position;
+       
         _desired.Normalize();
         _desired *= _maxSpeed;
 
@@ -82,36 +56,13 @@ public class Hunter : StateFather//=moveState
         AddForce(steering);
 
     }
-    /*
-    private void WayPointsSystem(int ActualWaypoint)
-    {
-        Vector3 desired = _wayPoints[ActualWaypoint].transform.position - transform.position;
-        desired.Normalize();
-        desired *= _maxSpeed;
-
-        Vector3 steering = desired - _velocity;
-
-        steering = Vector3.ClampMagnitude(steering, _maxForce * Time.deltaTime);
-
-        AddForce(steering);
-
-
-    }
-    */
+   
     private void AddForce(Vector3 force)
     {
         _velocity = Vector3.ClampMagnitude(_velocity + force, _maxSpeed);
     }
 
-    /* Vector3 ObstacleAvoidance()
-     {
-         if (Physics.Raycast(transform.position + transform.up * 0.5f, transform.right, _viewRadius, _obstacles))
-             return Seek(transform.position - transform.up);
-         else if (Physics.Raycast(transform.position - transform.up * 0.5f, transform.right, _viewRadius, _obstacles))
-             return Seek(transform.position + transform.up);
-         return Vector3.zero;
-     }
-    */
+   
     public void ObstacleAvoidance()
     {
         if (Physics.Raycast(HunterTransform.position + HunterTransform.up * 0.5f, HunterTransform.right, _radius, _obstacles))
@@ -130,28 +81,23 @@ public class Hunter : StateFather//=moveState
     }
     public void RangeToKill()
     {
-        //new RaycastHit a = transform.position,transform.right, ; 
-        //RaycastHit a;
+        
         if (Physics.Raycast(HunterTransform.position, HunterTransform.right, _rangeToKill, _enemies) || Physics.Raycast(HunterTransform.position, -HunterTransform.right, _rangeToKill, _enemies) || Physics.Raycast(HunterTransform.position, HunterTransform.up, _rangeToKill, _enemies) || Physics.Raycast(HunterTransform.position, -HunterTransform.up, _rangeToKill, _enemies))
         {
             if (_arrayOfEnemies[_actualPrey].gameObject == null)
             {
                 _actualPrey += 1;
-                //Destroy(_arrayOfEnemies[_actualPrey].gameObject);
+                
                 _arrayOfEnemies[_actualPrey].gameObject.SetActive(false);
             }
             else
             {
-               // Destroy(_arrayOfEnemies[_actualPrey].gameObject);
+               
                 _arrayOfEnemies[_actualPrey].gameObject.SetActive(false);
                 _actualPrey += 1;
 
             }
-            //Destroy(.collider.gameObject);
-            /*if(a.(transform.position, transform.right, _rangeToKill, _enemies))
-            {
-
-            }*/
+           
         }
     }
 
@@ -168,7 +114,7 @@ public class Hunter : StateFather//=moveState
     public override void OnEnter()
     {
         Debug.Log("Cazador entro a estado Move");
-        _rend.material.color = Color.green;
+        _rend.material.color = Color.red;
     }
 
     
