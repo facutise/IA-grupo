@@ -33,7 +33,7 @@ public class Boid : SteeringAgent
         {
             AddForce(Flee(_fleeTarget.position));
         }
-        else
+        else if (_seekTarget != null)
         {
             AddForce(Arrive(_seekTarget.position));
         }
@@ -57,7 +57,7 @@ public class Boid : SteeringAgent
         transform.position = GameManager.instance.AdjustPostionToBounds(transform.position); //Ajusta los límites del Game Manager para que no se salgan de adentro.
     }
 
-    public override void OnDrawGizmos()
+    protected override void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, _viewRadius);
