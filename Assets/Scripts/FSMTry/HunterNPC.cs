@@ -9,7 +9,7 @@ public class HunterNPC : MonoBehaviour//Player
     public LayerMask _obstacles;
     public LayerMask _enemies;
     public GameObject[] _arrayOfEnemies;
-    public EnergyBar EnergyBarScript;
+    //public EnergyBar EnergyBarScript;
     void Start()
     {
         _fsm = new MyHunterFiniteStateMachine(); //Esto esta creando una nueva FSM;
@@ -17,7 +17,7 @@ public class HunterNPC : MonoBehaviour//Player
         _fsm.AddState(PlayerStates.Move, new Hunter(this));
         //_fsm.AddState(PlayerStates.Dying, new DyingState(this));
         //_fsm.ChangeState(PlayerStates.Idle);
-        _fsm.ChangeState(PlayerStates.Move);
+        _fsm.ChangeState(PlayerStates.Idle);
 
     }
     public void Update()
