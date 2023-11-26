@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class Graph : MonoBehaviour
 {
-    // Esta lista contendrá todos los nodos presentes en la escena
     public List<Node> Nodes { get; private set; }
 
     void Start()
     {
-        // Al inicio, obten todos los nodos presentes en la escena
         Nodes = new List<Node>(FindObjectsOfType<Node>());
     }
 
     public List<Node> FindPath(Vector3 startPos, Vector3 targetPos)
     {
-        // Implementa el algoritmo A* para encontrar el camino
-        // desde la posición inicial hasta la posición objetivo
-
         List<Node> openSet = new List<Node>();
         HashSet<Node> closedSet = new HashSet<Node>();
 
@@ -69,7 +64,7 @@ public class Graph : MonoBehaviour
             }
         }
 
-        return null; // No se encontró un camino válido
+        return null;
     }
 
     List<Node> RetracePath(Node startNode, Node endNode)
@@ -89,13 +84,11 @@ public class Graph : MonoBehaviour
 
     int GetDistance(Node nodeA, Node nodeB)
     {
-        // Retorna la distancia en nodos entre dos nodos
         return Mathf.RoundToInt(Vector3.Distance(nodeA.Position, nodeB.Position));
     }
 
     Node FindClosestNode(Vector3 position)
     {
-        // Encuentra el nodo más cercano a la posición dada
         Node closestNode = null;
         float closestDistance = float.MaxValue;
 

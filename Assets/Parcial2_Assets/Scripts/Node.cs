@@ -9,11 +9,9 @@ public class Node : MonoBehaviour
     public List<Node> Connections { get; private set; } = new List<Node>();  // Lista de nodos vecinos
     public Node Parent { get; set; }  // Utilizado para el algoritmo A*
 
-    // Puedes agregar más propiedades según sea necesario para tu proyecto
-
-    public int GCost { get; set; }  // Costo acumulado desde el nodo inicial hasta este nodo
-    public int HCost { get; set; }  // Estimación del costo desde este nodo hasta el nodo objetivo
-    public int FCost { get { return GCost + HCost; } }  // Suma de GCost y HCost
+    public int GCost { get; set; }
+    public int HCost { get; set; }
+    public int FCost { get { return GCost + HCost; } }
 
     void OnDrawGizmos()
     {
