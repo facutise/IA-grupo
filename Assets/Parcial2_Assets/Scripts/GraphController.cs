@@ -1,13 +1,15 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Graph : MonoBehaviour
+[System.Serializable]
+public class GraphController: MonoBehaviour
 {
-    public List<Node> Nodes { get; private set; }
+    public List<Node> Nodes { get; set; }
 
     void Start()
     {
+        Debug.Log("Graph Start");
         Nodes = new List<Node>(FindObjectsOfType<Node>());
     }
 
@@ -105,3 +107,4 @@ public class Graph : MonoBehaviour
         return closestNode;
     }
 }
+*/
